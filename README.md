@@ -1,7 +1,10 @@
-# FogProjekt_B4
+# FogProjekt_B4 <br><br>
 
-Team: B4
-Christian Markus Høfling, 
-Alexander Sehested, 
-Tibor Stanisavic, 
-Oliver Max Løye
+<b>Team: B4<b>
+<ul>
+  <li>Christian Markus Høfling,</li> 
+  <li>Alexander Sehested,</li>
+  <li>Tibor Stanisavic,</li>
+  <li>Oliver Max Løye</li>
+</ul>
+  
