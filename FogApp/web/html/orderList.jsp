@@ -15,13 +15,20 @@
         <title>Fog Application</title>
     </head>
     <body>
-        <h1>Bestillinger</h1>
-        <br>
-        <p>
-            <%
-                OrderMapper orderm = new OrderMapper();
-                List<Order> allOrders = orderm.getOrders();
-            %>
-        </p>
+        <form name="orderList" action="OrderController" method="GET">
+            <h1>Bestillinger</h1>
+            <br>
+            <p>
+                <%
+                    OrderMapper orderm = new OrderMapper();
+                    List<Order> allOrders = orderm.getOrders();
+                    
+                        for(Order order : allOrders) {
+                        out.print("<p>" + order.toString()+ "</p>");
+                        
+                    }
+                %>
+            </p>
+        </form>
     </body>
 </html>
