@@ -13,7 +13,7 @@ public class DB {
     private static DB instance;
     private static PreparedStatement stmt;
     private static String driver = "com.mysql.jdbc.Driver";
-    private static String URL = "localhost";
+    private static String URL = "127.0.0.1/fogDatabase";
     private static String id = "root";
     private static String pw = "Kode1325";
 
