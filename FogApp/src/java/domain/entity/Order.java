@@ -13,9 +13,9 @@ public class Order {
     
     private int orderId;
     private int customerId;
-    private int height;
-    private int length;
-    private int width;
+    private double height;
+    private double length;
+    private double width;
     private int status;
     
     
@@ -23,7 +23,7 @@ public class Order {
         
     }
 
-    public Order(int orderId, int customerId, int height, int length, int width, int status) {
+    public Order(int orderId, int customerId, double height, double length, double width, int status) {
         this.orderId = orderId;
         this.customerId = customerId;
         this.height = height;
@@ -48,7 +48,7 @@ public class Order {
         return customerId;
     }
 
-    public int getHeight() {
+    public double getHeight() {
         return height;
     }
 
@@ -56,7 +56,7 @@ public class Order {
         this.height = height;
     }
 
-    public int getLength() {
+    public double getLength() {
         return length;
     }
 
@@ -64,7 +64,7 @@ public class Order {
         this.length = length;
     }
 
-    public int getWidth() {
+    public double getWidth() {
         return width;
     }
 
