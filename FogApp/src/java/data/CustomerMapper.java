@@ -32,7 +32,6 @@ public class CustomerMapper {
                 String address = rs.getString("address");
                 String email = rs.getString("email");
                 String phone = rs.getString("phone");
-                double balance = rs.getDouble("balance");
                 customer = new Customer(customerId, firstName, lastName, address, email, phone);
             }
         } catch (SQLException ex) {
