@@ -28,12 +28,12 @@ public class OrderMapper {
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()) {
                 int orderId = rs.getInt("orderId");
-                int height = rs.getInt("height");
-                int length = rs.getInt("length");
-                int width = rs.getInt("width");
+                double height = rs.getDouble("height");
+                double length = rs.getDouble("length");
+                double width = rs.getDouble("width");
                 int customerId = rs.getInt("customerId");
                 int status = rs.getInt("status");
-                orders.add(new Order(orderId, height, length, width, customerId, status));
+                orders.add(new Order(orderId, customerId, height, length, width, status));
             }
             
             return orders;
@@ -45,4 +45,33 @@ public class OrderMapper {
         return null;
         
     }
+    
+    public void setOrder(int orderId, double height, double length, double width, int customerId, int status) {
+        
+        Connection conn = new DB().getConnection();
+        try {
+            String sql = "INSERT INTO order(orderID, height, length, width, customerId, status) VALUES (null,?,?,?,null,null)";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+            
+            pstmt.setDouble(1, height);
+            pstmt.setDouble(2, length);
+            pstmt.setDouble(3, width);
+            
+            if(checkEmailExists(email)) {
+                
+                return;
+            } else {
+                System.out.println("User dosen't exsist");
+            pstmt.execute();
+            }
+            
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            
+        }
+        
+    }
+    
 }
