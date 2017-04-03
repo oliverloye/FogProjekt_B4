@@ -32,7 +32,8 @@ public class OrderMapper {
                 int length = rs.getInt("length");
                 int width = rs.getInt("width");
                 int customerId = rs.getInt("customerId");
-                orders.add(new Order(orderId, height, length, width, customerId));
+                int status = rs.getInt("status");
+                orders.add(new Order(orderId, height, length, width, customerId, status));
             }
             
             return orders;

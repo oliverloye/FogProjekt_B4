@@ -16,18 +16,28 @@ public class Order {
     private int height;
     private int length;
     private int width;
+    private int status;
     
     
     public Order() {
         
     }
 
-    public Order(int orderId, int customerId, int height, int length, int width) {
+    public Order(int orderId, int customerId, int height, int length, int width, int status) {
         this.orderId = orderId;
         this.customerId = customerId;
         this.height = height;
         this.length = length;
         this.width = width;
+        this.status = status;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public int getOrderId() {
@@ -64,9 +74,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "orderId=" + orderId + ", customerId=" + customerId + ", height=" + height + ", length=" + length + ", width=" + width + '}';
+        return "Order{" + "orderId=" + orderId + ", customerId=" + customerId + ", height=" + height + ", length=" + length + ", width=" + width + ", status=" + status + '}';
     }
 
-    
-    
 }

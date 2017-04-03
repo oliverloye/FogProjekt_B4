@@ -28,6 +28,13 @@ a{
 
 }
 
+h1{
+    color: darksalmon;
+    background-color: #ccffff;
+    font-size: 35px;
+
+}
+
 input{
     align-content: center;
     align-items: center;
