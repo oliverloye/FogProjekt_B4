@@ -40,7 +40,16 @@ input{
     align-items: center;
 }
 
-body{
+p{
+    scolor: darksalmon;
+    background-color: #ccffff;
+    font-size: 35px;
+}
+
+h1{
+     color: darksalmon;
+    background-color: #ccffff;
+    font-size: 35px;
 
   
 }
