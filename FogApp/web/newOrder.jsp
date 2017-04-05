@@ -14,12 +14,12 @@
     </head>
     <body>
         <h1>Indtast dine oplysninger!</h1>
-        <form action="/action_page.php">
-        Fornavn: <br> <br>  <input type="text" name="fname"><br>
-      <br>   Efternavn: <br><br>  <input type="text" name="lname"><br>
+        <form action="OrderController" method="POST">
+        Fornavn: <br> <br>  <input type="text" name="firstName"><br>
+      <br>   Efternavn: <br><br>  <input type="text" name="lastName"><br>
       <br>   Tlf. Nr:   <br><br>  <input type="text" name="phone"><br>
-      <br>   Email:    <br><br>   <input type="text" name="mail"><br>
-      <br>   Adresse: <br> <br>   <input type="text" name="adress"><br>
+      <br>   Email:    <br><br>   <input type="text" name="email"><br>
+      <br>   Adresse: <br> <br>   <input type="text" name="address"><br>
       <br>   Højde:    <br><br>   <input type="text" name="height"><br>
       <br>   Bredde: <br>  <br>   <input type="text" name="width"><br>
       <br>   Længde:  <br> <br>   <input type="text" name="length"><br>
