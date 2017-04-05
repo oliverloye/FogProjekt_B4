@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -40,6 +42,31 @@ public class CustomerMapper {
         return customer;
     }
     
+    public Customer getCustomerId (String fName, String lName, String mail) {
+        Customer customer = null;
+        try {  
+            Connection conn = new DB().getConnection();
+            String sql = "SELECT * FROM customer WHERE firstName = ? AND lastName = ? AND email = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, fName);
+            pstmt.setString(2, lName);
+            pstmt.setString(3, mail);
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next()) {
+                int customerId = rs.getInt("customerId");
+                String firstName = rs.getString("firstName");
+                String lastName = rs.getString("lastName");
+                String address = rs.getString("address");
+                String email = rs.getString("email");
+                String phone = rs.getString("phone");
+                customer = new Customer(customerId, firstName, lastName, address, email, phone);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return customer;
+    }
+    
     public void setCustomer(String firstName, String lastName, String address, String email, String phone) throws SQLException {
 
         Connection conn = new DB().getConnection();
@@ -54,14 +81,7 @@ public class CustomerMapper {
             pstmt.setString(4, email);
             pstmt.setString(5, phone);
             
-            if(checkEmailExists(email)) {
-                
-                return;
-            } else {
-                System.out.println("User dosen't exsist");
             pstmt.execute();
-            }
-            
 
         } catch (SQLException ex) {
             ex.printStackTrace();
