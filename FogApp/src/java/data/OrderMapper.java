@@ -46,17 +46,18 @@ public class OrderMapper {
         
     }
     
-    public void setOrder(int orderId, double height, double length, double width, int customerId, int status) {
+    public void setOrder(double height, double length, double width, int customerId) throws SQLException {
         
         Connection conn = new DB().getConnection();
         try {
-            String sql = "INSERT INTO order(orderId, height, length, width, customerId, status) VALUES (null,?,?,?,null,null)";
+            String sql = "INSERT INTO order(orderId, height, length, width, customerId, status) VALUES (null,?,?,?,?,null)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
             
             pstmt.setDouble(1, height);
             pstmt.setDouble(2, length);
             pstmt.setDouble(3, width);
+            pstmt.setInt(4, customerId);
             
             pstmt.execute();
 
