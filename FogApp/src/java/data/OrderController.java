@@ -52,7 +52,7 @@ public class OrderController extends HttpServlet {
                     if(cm.checkEmailExists(email) == false) {
 
                         cm.setCustomer(firstName, lastName, address, email, phone);
-
+                        
                         customerId = cm.getCustomerId(firstName, lastName, email).getCustomerId();
 
                         om.setOrder(height, length, width, customerId);
