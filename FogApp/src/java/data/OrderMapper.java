@@ -46,6 +46,7 @@ public class OrderMapper {
         
     }
     
+
     public void setOrder(double height, double length, double width, int customerId) throws SQLException {
         
         Connection conn = new DB().getConnection();
@@ -67,6 +68,7 @@ public class OrderMapper {
         }
         
     }
+
     
 //    public boolean checkOrderIdExists(int orderId) {
 //        

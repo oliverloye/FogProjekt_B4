@@ -45,10 +45,10 @@ p{
 }
 
 h1{
-     color: darkblue;
+    color: darkblue;
     font-size: 35px;
 
-  
+
 }
 
 /*button {
@@ -73,20 +73,39 @@ h1{
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 18px;
+    font-family: sans-serif;
     margin: 4px 10px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.3s; /* Safari */
+    transition-duration: 0.3s;
     cursor: pointer;
+
 }
 
 .button1 {
     background-color: white; 
     color: black; 
-    border: 2px solid #4CAF50;
+    border: 3px solid #4CAF50;
+    border-radius: 4px;
 }
 
 .button1:hover {
     background-color: #4CAF50;
     color: white;
+}
+
+input {
+
+    color: white;
+    background-color: white; 
+    color: black; 
+    border: 3px solid #4CAF50;
+    border-radius: 4px;
+    align-content: center;
+
+}
+
+form {
+    margin: 4px;
+
 }
