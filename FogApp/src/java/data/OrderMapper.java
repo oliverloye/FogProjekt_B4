@@ -50,7 +50,7 @@ public class OrderMapper {
         
         Connection conn = new DB().getConnection();
         try {
-            String sql = "INSERT INTO order(orderID, height, length, width, customerId, status) VALUES (null,?,?,?,null,null)";
+            String sql = "INSERT INTO order(orderId, height, length, width, customerId, status) VALUES (null,?,?,?,null,null)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
             
@@ -58,14 +58,7 @@ public class OrderMapper {
             pstmt.setDouble(2, length);
             pstmt.setDouble(3, width);
             
-            if(checkEmailExists(email)) {
-                
-                return;
-            } else {
-                System.out.println("User dosen't exsist");
             pstmt.execute();
-            }
-            
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -73,5 +66,31 @@ public class OrderMapper {
         }
         
     }
+    
+//    public boolean checkOrderIdExists(int orderId) {
+//        
+//        boolean userExists = false;
+//        try {
+//            Connection conn = new DB().getConnection();
+//            String sql = "SELECT * FROM order WHERE orderId = ?";
+//            PreparedStatement pstmt = conn.prepareStatement(sql);
+//            pstmt.setInt(1, orderId);
+//            ResultSet rs = pstmt.executeQuery();
+//            int IdCounter;
+//            if(rs.next()) {
+//                IdCounter = rs.getInt("orderId");
+//                if(IdCounter == orderId) {
+//                    System.out.println("OrderId already exists");
+//                    userExists = true;
+//                   
+//                }
+//            }
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//            
+//        }
+//        return userExists;
+//    }
+    
     
 }
