@@ -11,26 +11,42 @@ package domain.entity;
  */
 public class Order {
     
-    private int orderId;
-    private int customerId;
+    private int oid;
+    private int cid;
+    private int pid;
+    private int mid;
+    private int status;
     private double height;
     private double length;
     private double width;
-    private int status;
+    
+    
     
     
     public Order() {
         
     }
 
-    public Order(int orderId, int customerId, double height, double length, double width, int status) {
-        this.orderId = orderId;
-        this.customerId = customerId;
+    public Order(int oid, int cid, int pid, int mid, int status, double height, double length, double width) {
+        this.oid = oid;
+        this.cid = cid;
+        this.status = status;
+        this.pid = pid;
+        this.mid = mid;
         this.height = height;
         this.length = length;
         this.width = width;
-        this.status = status;
     }
+
+    public int getOid() {
+        return oid;
+    }
+
+
+    public int getCid() {
+        return cid;
+    }
+
 
     public int getStatus() {
         return status;
@@ -40,19 +56,21 @@ public class Order {
         this.status = status;
     }
 
-    public int getOrderId() {
-        return orderId;
+    public int getPid() {
+        return pid;
     }
 
-    public int getCustomerId() {
-        return customerId;
+
+    public int getMid() {
+        return mid;
     }
+
 
     public double getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 
@@ -60,7 +78,7 @@ public class Order {
         return length;
     }
 
-    public void setLength(int length) {
+    public void setLength(double length) {
         this.length = length;
     }
 
@@ -68,13 +86,17 @@ public class Order {
         return width;
     }
 
-    public void setWidth(int width) {
+    public void setWidth(double width) {
         this.width = width;
     }
 
     @Override
     public String toString() {
-        return "Order{" + "orderId=" + orderId + ", customerId=" + customerId + ", height=" + height + ", length=" + length + ", width=" + width + ", status=" + status + '}';
+        return "Order{" + "oid=" + oid + ", cid=" + cid + ", pid=" + pid + ", mid=" + mid + ", status=" + status + ", heigth=" + height + ", length=" + length + ", width=" + width + '}';
     }
+
+    
+
+    
 
 }

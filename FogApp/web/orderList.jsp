@@ -20,13 +20,16 @@
             <br>
             <p>
                 <%
+                    
                     OrderMapper orderm = new OrderMapper();
+                    
                     List<Order> allOrders = orderm.getOrders();
                     
                         for(Order order : allOrders) {
                         out.print("<p>" + order.toString()+ "</p>");
                         
                     }
+                    
                 %>
             </p>
         </form>
