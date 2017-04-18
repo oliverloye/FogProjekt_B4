@@ -22,43 +22,49 @@ public class OrderMapper {
         ArrayList<Order> orders = new ArrayList<>();
         
         try {
+            
             Connection conn = new DB().getConnection();
-            String sql = "SELECT * FROM order";
+            
+            String sql = "SELECT * FROM `Order`";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()) {
-                int orderId = rs.getInt("orderId");
+                int orderId = rs.getInt("oid");
+                int customerId = rs.getInt("cid");
+                int status = rs.getInt("status");
+                int productId = rs.getInt("pid");
+                int materialId = rs.getInt("mid");
                 double height = rs.getDouble("height");
                 double length = rs.getDouble("length");
                 double width = rs.getDouble("width");
-                int customerId = rs.getInt("customerId");
-                int status = rs.getInt("status");
-                orders.add(new Order(orderId, customerId, height, length, width, status));
+                
+                orders.add(new Order(orderId, customerId, status, productId, materialId, height, length, width));
             }
             
             return orders;
             
         } catch (SQLException ex) {
             ex.printStackTrace();
-        }
+        } 
         
         return null;
         
     }
     
 
-    public void setOrder(double height, double length, double width, int customerId) throws SQLException {
+    public void setOrder(int customerId, double height, double length, double width) throws SQLException {
         
         Connection conn = new DB().getConnection();
         try {
-            String sql = "INSERT INTO order(orderId, height, length, width, customerId, status) VALUES (null,?,?,?,?,null)";
+            String sql = "INSERT INTO `Order`(oid, cid, status, pid, mid, height, length, width) VALUES (null,?,null,null,null,?,?,?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
             
-            pstmt.setDouble(1, height);
-            pstmt.setDouble(2, length);
-            pstmt.setDouble(3, width);
-            pstmt.setInt(4, customerId);
+            pstmt.setInt(1, customerId);
+            pstmt.setDouble(2, height);
+            pstmt.setDouble(3, length);
+            pstmt.setDouble(4, width);
+            
             
             pstmt.execute();
 

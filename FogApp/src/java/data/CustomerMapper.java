@@ -23,12 +23,12 @@ public class CustomerMapper {
         Customer customer = null;
         try {
             Connection conn = new DB().getConnection();
-            String sql = "SELECT * FROM customer WHERE customerId = ?";
+            String sql = "SELECT * FROM customer WHERE cid = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, id);
             ResultSet rs = pstmt.executeQuery();
             if(rs.next()) {
-                int customerId = rs.getInt("customerId");
+                int customerId = rs.getInt("cid");
                 String firstName = rs.getString("firstName");
                 String lastName = rs.getString("lastName");
                 String address = rs.getString("address");
@@ -46,14 +46,14 @@ public class CustomerMapper {
         Customer customer = null;
         try {  
             Connection conn = new DB().getConnection();
-            String sql = "SELECT * FROM customer WHERE firstName = ? AND lastName = ? AND email = ?";
+            String sql = "SELECT * FROM `customer` WHERE firstName = ? AND lastName = ? AND email = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, fName);
             pstmt.setString(2, lName);
             pstmt.setString(3, mail);
             ResultSet rs = pstmt.executeQuery();
             if(rs.next()) {
-                int customerId = rs.getInt("customerId");
+                int customerId = rs.getInt("cid");
                 String firstName = rs.getString("firstName");
                 String lastName = rs.getString("lastName");
                 String address = rs.getString("address");
@@ -71,7 +71,7 @@ public class CustomerMapper {
 
         Connection conn = new DB().getConnection();
         try {
-            String sql = "INSERT INTO customer(customerId, firstName, lastName, address, email, phone) VALUES (null, ?,?,?,?,?)";
+            String sql = "INSERT INTO `customer`(cid, firstName, lastName, address, email, phone) VALUES (null, ?,?,?,?,?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
             

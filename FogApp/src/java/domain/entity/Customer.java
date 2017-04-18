@@ -11,7 +11,7 @@ package domain.entity;
  */
 public class Customer {
     
-    private int customerId;
+    private int cid;
     private String firstName;
     private String lastName;
     private String address;
@@ -23,8 +23,8 @@ public class Customer {
         
     }
 
-    public Customer(int customerId, String firstName, String lastName, String address, String email, String phone) {
-        this.customerId = customerId;
+    public Customer(int cid, String firstName, String lastName, String address, String email, String phone) {
+        this.cid = cid;
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -32,8 +32,8 @@ public class Customer {
         this.phone = phone;
     }
 
-    public int getCustomerId() {
-        return customerId;
+    public int getCid() {
+        return cid;
     }
 
     public String getFirstName() {
@@ -78,7 +78,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" + "customerId=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", email=" + email + ", phone=" + phone + '}';
+        return "Customer{" + "cid=" + cid + ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", email=" + email + ", phone=" + phone + '}';
     }
 
 }

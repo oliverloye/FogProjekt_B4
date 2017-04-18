@@ -45,25 +45,25 @@ public class OrderController extends HttpServlet {
 
                     //Der skal være en tjek-funktion, som tjekker om input fra jsp er korrekt input, før vi arbejder videre med data.
                     //Laver carports mål om til double
-                    Double.parseDouble(height);
-                    Double.parseDouble(length);
-                    Double.parseDouble(width);
+                    double dHeight = Double.parseDouble(height);
+                    double dLength = Double.parseDouble(length);
+                    double dWidth = Double.parseDouble(width);
 
                     if(cm.checkEmailExists(email) == false) {
 
                         cm.setCustomer(firstName, lastName, address, email, phone);
                         
-                        customerId = cm.getCustomerId(firstName, lastName, email).getCustomerId();
+                        customerId = cm.getCustomerId(firstName, lastName, email).getCid();
 
-                        om.setOrder(height, length, width, customerId);
+                        om.setOrder(customerId, dHeight, dLength, dWidth);
 
                         request.getRequestDispatcher("index.html").forward(request, response);
 
                     } else {
 
-                        customerId = cm.getCustomerId(firstName, lastName, email).getCustomerId();
+                        customerId = cm.getCustomerId(firstName, lastName, email).getCid();
 
-                        om.setOrder(height, length, width, customerId);
+                        om.setOrder(customerId, dHeight, dLength, dWidth);
 
                         request.getRequestDispatcher("index.html").forward(request, response);
 
