@@ -24,7 +24,7 @@
       <br>   Bredde: <br>  <br>   <input type="text" name="width"><br>
       <br>   Længde:  <br> <br>   <input type="text" name="length"><br>
         <br>
-        <input type="button" value="Opret">
+        <input type="submit" name="submit" value="Opret">
         </form>
     </body>
 </html>
