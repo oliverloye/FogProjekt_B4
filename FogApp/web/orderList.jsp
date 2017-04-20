@@ -15,23 +15,57 @@
         <title>Fog Application</title>
     </head>
     <body>
-        <form name="orderList" action="OrderController" method="GET">
             <h1>Bestillinger</h1>
             <br>
             <p>
                 <%
                     
+                    out.print("<table border=1>");
+                        out.print("<tr> "
+                                    + "<th>Ordre ID</th>"
+                                    + "<th>Kunde ID</th>"
+                                    + "<th>Produkt ID</th>"
+                                    + "<th>Materiale ID</th>"
+                                    + "<th>Højde</th>"
+                                    + "<th>Længde</th>"
+                                    + "<th>Bredde</th>"
+                                    + "<th>Status</th>"
+                                    + "<th></th>"
+                                + "</tr>");
+                            
                     OrderMapper orderm = new OrderMapper();
+                    int orderId;
                     
                     List<Order> allOrders = orderm.getOrders();
                     
                         for(Order order : allOrders) {
-                        out.print("<p>" + order.toString()+ "</p>");
+                            out.print("<tr>");
+                                out.print("<td>" + order.getOid()+ "</td>");
+                                out.print("<td>" + order.getCid()+ "</td>");
+                                out.print("<td>" + order.getPid()+ "</td>");
+                                out.print("<td>" + order.getMid()+ "</td>");
+                                out.print("<td>" + order.getHeight()+ "</td>");
+                                out.print("<td>" + order.getLength()+ "</td>");
+                                out.print("<td>" + order.getWidth()+ "</td>");
+                                out.print("<td>" + order.getStatus()+ "</td>");
+                                out.print("<td>"
+                                        + "<form name=\"orderList\" action=\"editOrder.jsp\" method=\"POST\">"
+                                        + "<input type=\"hidden\" name=\"orderId\" value=" + order.getOid() +">"
+                                        + "<input type=\"submit\" value=\"Rediger\">"
+                                        + "</form>"
+                                        + "</td>");
+                                out.print("<td>"
+                                        + "<form name=\"deleteOrder\" action=\"DeleteController\" method=\"POST\">"
+                                        + "<input type=\"hidden\" name=\"orderId\" value=" + order.getOid() +">"
+                                        + "<input type=\"submit\" value=\"Slet\">"
+                                        + "</td>");
+                            out.print("</tr>");
                         
-                    }
-                    
+   
+                        }
+                    out.print("</table>");
                 %>
             </p>
-        </form>
+            <button type="submit" formaction="index.html" id="A3" class="button button1">Tilbage</button>
     </body>
 </html>

@@ -11,12 +11,58 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Oliver
  */
 public class OrderMapper {
+    
+    public void deleteOrder(int id) {
+        
+        try {
+            Connection conn = new DB().getConnection();
+            String sql = "UPDATE `Order` SET Relevant = FALSE WHERE oid = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id);
+//            ResultSet rs = pstmt.executeQuery();
+            pstmt.execute();
+//            if(rs.next()) {
+//                int orderId = rs.getInt("oid");
+//            }
+            conn.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public Order getOrder(int id) {
+        
+        Order order = null;
+        try {
+            Connection conn = new DB().getConnection();
+            String sql = "SELECT * FROM `Order` WHERE oid = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id);
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next()) {
+                int orderId = rs.getInt("oid");
+                int customerId = rs.getInt("cid");
+                int productId = rs.getInt("pid");
+                int materialId = rs.getInt("mid");
+                int status = rs.getInt("status");
+                double height = rs.getDouble("height");
+                double length = rs.getDouble("length");
+                double width = rs.getDouble("width");
+                order = new Order(orderId, customerId, productId, materialId, status, height, length, width);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return order;
+    }
     
     public ArrayList<Order> getOrders() {
         ArrayList<Order> orders = new ArrayList<>();
@@ -25,7 +71,7 @@ public class OrderMapper {
             
             Connection conn = new DB().getConnection();
             
-            String sql = "SELECT * FROM `Order`";
+            String sql = "SELECT * FROM `Order` WHERE Relevant = TRUE";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()) {

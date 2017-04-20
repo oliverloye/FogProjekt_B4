@@ -92,7 +92,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "oid=" + oid + ", cid=" + cid + ", pid=" + pid + ", mid=" + mid + ", status=" + status + ", heigth=" + height + ", length=" + length + ", width=" + width + '}';
+        return "Order{" + "Order ID=" + oid + ", Customer ID=" + cid + ", pid=" + pid + ", mid=" + mid + ", status=" + status + ", heigth=" + height + ", length=" + length + ", width=" + width + '}';
     }
 
     
