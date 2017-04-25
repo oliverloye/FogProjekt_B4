@@ -98,7 +98,7 @@ public class OrderMapper {
     }
     
 
-    public void setOrder(int customerId, double height, double length, double width) throws SQLException {
+        public void setOrder(int customerId, double height, double length, double width) throws SQLException {
         
         Connection conn = new DB().getConnection();
         try {
@@ -117,6 +117,24 @@ public class OrderMapper {
         } catch (SQLException ex) {
             ex.printStackTrace();
             
+        }
+        
+    }
+    
+    public void updateOrder(double height, double length, double width) throws SQLException {
+        
+        Connection conn = new DB().getConnection();
+        try {
+            String sql = "UPDATE `Order` SET height = ?, length = ?, width = ? WHERE oid = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+            pstmt.setDouble(1, height);
+            pstmt.setDouble(2, length);
+            pstmt.setDouble(3, width);
+
+            pstmt.execute();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
         
     }

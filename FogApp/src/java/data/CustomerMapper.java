@@ -89,6 +89,25 @@ public class CustomerMapper {
         }
     }
     
+    public void updateCustomer(String firstName, String lastName, String address, String email, String phone) throws SQLException {
+        
+        Connection conn = new DB().getConnection();
+        try {
+            String sql = "UPDATE `customer` SET firstName = ?, lastName = ?, address = ?, email = ?, phone = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, firstName);
+            pstmt.setString(2, lastName);
+            pstmt.setString(3, address);
+            pstmt.setString(4, email);
+            pstmt.setString(5, phone);
+
+            pstmt.execute();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
     public boolean checkEmailExists(String email) {
         
         boolean userExists = false;

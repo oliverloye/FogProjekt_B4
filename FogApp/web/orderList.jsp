@@ -51,6 +51,7 @@
                                 out.print("<td>"
                                         + "<form name=\"orderList\" action=\"editOrder.jsp\" method=\"POST\">"
                                         + "<input type=\"hidden\" name=\"orderId\" value=" + order.getOid() +">"
+                                        + "<input type=\"hidden\" name=\"customerId\" value=" + order.getCid() +">"
                                         + "<input type=\"submit\" value=\"Rediger\">"
                                         + "</form>"
                                         + "</td>");
