@@ -58,6 +58,7 @@
                                         + "<form name=\"deleteOrder\" action=\"DeleteController\" method=\"POST\">"
                                         + "<input type=\"hidden\" name=\"orderId\" value=" + order.getOid() +">"
                                         + "<input type=\"submit\" value=\"Slet\">"
+                                        + "</form>"
                                         + "</td>");
                             out.print("</tr>");
                         
@@ -66,6 +67,8 @@
                     out.print("</table>");
                 %>
             </p>
-            <button type="submit" formaction="index.html" id="A3" class="button button1">Tilbage</button>
+            <form name="backButton" action="index.html"> 
+                <button type="submit" id="A3" class="button button1">Tilbage</button>
+            </form>
     </body>
 </html>
