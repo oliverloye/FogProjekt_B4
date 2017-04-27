@@ -89,20 +89,22 @@ public class CustomerMapper {
         }
     }
     
-    public void updateCustomer(String firstName, String lastName, String address, String email, String phone) throws SQLException {
+    public void updateCustomer(int cid, String firstName, String lastName, String address, String email, String phone) throws SQLException {
         
         Connection conn = new DB().getConnection();
         try {
-            String sql = "UPDATE `customer` SET firstName = ?, lastName = ?, address = ?, email = ?, phone = ?";
+            String sql = "UPDATE `customer` SET firstName = ?, lastName = ?, address = ?, email = ?, phone = ? WHERE cid = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
-            pstmt.setString(1, firstName);
-            pstmt.setString(2, lastName);
-            pstmt.setString(3, address);
-            pstmt.setString(4, email);
-            pstmt.setString(5, phone);
+            pstmt.setInt(1, cid);
+            pstmt.setString(2, firstName);
+            pstmt.setString(3, lastName);
+            pstmt.setString(4, address);
+            pstmt.setString(5, email);
+            pstmt.setString(6, phone);
 
             pstmt.execute();
+                System.out.println("efter updateCustomer execute");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

@@ -48,10 +48,12 @@
         out.print("<center>");
             out.print("<h1>Indtast dine oplysninger!</h1>");
             out.print("<form action=\"UpdateController\" method=\"POST\">");
+            out.print("<input type=\"hidden\" name=\"thisCustomer\" value=" + request.getParameter("customerId") +">");
+            out.print("<input type=\"hidden\" name=\"thisOrder\" value=" + request.getParameter("orderId") +">");
                 out.print("Fornavn: <br> <br>  <input type=\"text\" name=\"firstName\" value=" + customer.getFirstName() + "><br>");
               out.print("<br>   Efternavn: <br><br>  <input type=\"text\" name=\"lastName\" value=" + customer.getLastName() + "><br>");
               out.print("<br>   Tlf. Nr:   <br><br>  <input type=\"text\" name=\"phone\" value=" + customer.getPhone() + "><br>");
-              out.print("<br>   Email:    <br><br>   <input type=\"text\" name=\"email\"value=" + customer.getEmail() + "><br>");
+              out.print("<br>   Email:    <br><br>   <input type=\"text\" name=\"email\" value=" + customer.getEmail() + "><br>");
               out.print("<br>   Adresse: <br> <br>   <input type=\"text\" name=\"address\" value=" + customer.getAddress() + "><br>");
               out.print("<br>   Højde:    <br><br>   <input type=\"text\" name=\"height\" value=" + order.getHeight() + "><br>");
               out.print("<br>   Bredde: <br>  <br>   <input type=\"text\" name=\"width\" value=" + order.getWidth() + "><br>");

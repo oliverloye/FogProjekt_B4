@@ -121,18 +121,20 @@ public class OrderMapper {
         
     }
     
-    public void updateOrder(double height, double length, double width) throws SQLException {
+    public void updateOrder(int oid, double height, double length, double width) throws SQLException {
         
         Connection conn = new DB().getConnection();
         try {
             String sql = "UPDATE `Order` SET height = ?, length = ?, width = ? WHERE oid = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
-            pstmt.setDouble(1, height);
-            pstmt.setDouble(2, length);
-            pstmt.setDouble(3, width);
+            pstmt.setInt(1, oid);
+            pstmt.setDouble(2, height);
+            pstmt.setDouble(3, length);
+            pstmt.setDouble(4, width);
 
             pstmt.execute();
+                System.out.println("efter updateOrder execute");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
