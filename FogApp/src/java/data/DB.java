@@ -24,7 +24,6 @@ public class DB {
             Class.forName(driver);
             
             con = DriverManager.getConnection(URL, id, pw);  // The connection will be released upon program 
-            System.out.println("Efter driver");
 
         } catch (Exception e) {
             System.out.println("\n*** Remember to insert your  ID and PW in the DBConnector class! ***\n");

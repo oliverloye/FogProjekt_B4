@@ -5,6 +5,8 @@
  */
 package data;
 
+import domain.entity.Customer;
+import domain.entity.Order;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -25,15 +27,23 @@ public class UpdateController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        CustomerMapper cm = new CustomerMapper();
+                CustomerMapper cm = new CustomerMapper();
                 OrderMapper om = new OrderMapper();
                 int customerId;
+                
+                Order order = null;
+                Customer customer = null;
+            
+                
+                
                 
                 try {
                     response.setContentType("text/html; charset=UTF-8");
 
-                    //Henter data fra newOrder.jsp
-                    //Customer data
+                    //Henter data fra editOrder.jsp
+                    String oid = request.getParameter("thisOrder");
+                    String cid = request.getParameter("thisCustomer");
+                    
                     String firstName = request.getParameter("firstName");
                     String lastName = request.getParameter("lastName");
                     String address = request.getParameter("address");
@@ -45,14 +55,19 @@ public class UpdateController extends HttpServlet {
                     String width = request.getParameter("width");
 
                     //Der skal være en tjek-funktion, som tjekker om input fra jsp er korrekt input, før vi arbejder videre med data.
+                    //Order ID og Customer ID
+                    int iOid = Integer.parseInt(oid);
+                    int iCid = Integer.parseInt(cid);
                     //Laver carports mål om til double
                     double dHeight = Double.parseDouble(height);
                     double dLength = Double.parseDouble(length);
                     double dWidth = Double.parseDouble(width);
                     
-                    om.updateOrder(dHeight, dLength, dWidth);
-                    cm.updateCustomer(firstName, lastName, address, email, phone);
+                    System.out.println(iOid);
+                    System.out.println(iCid);
                     
+                    om.updateOrder(iOid, dHeight, dLength, dWidth);
+                    cm.updateCustomer(iCid, firstName, lastName, address, email, phone);
                     request.getRequestDispatcher("orderList.jsp").forward(request, response);
 
 //                    if(cm.checkEmailExists(email) == false) {
