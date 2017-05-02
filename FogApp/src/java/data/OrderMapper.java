@@ -5,21 +5,21 @@
  */
 package data;
 
+import data.Interfaces.IorderMapper;
 import domain.entity.Order;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author Oliver
  */
-public class OrderMapper {
+public class OrderMapper implements IorderMapper {
     
+    @Override
     public void deleteOrder(int id) {
         
         try {
@@ -38,6 +38,7 @@ public class OrderMapper {
         }
     }
     
+    @Override
     public Order getOrder(int id) {
         
         Order order = null;
@@ -64,6 +65,7 @@ public class OrderMapper {
         return order;
     }
     
+    @Override
     public ArrayList<Order> getOrders() {
         ArrayList<Order> orders = new ArrayList<>();
         
@@ -98,6 +100,7 @@ public class OrderMapper {
     }
     
 
+    @Override
         public void setOrder(int customerId, double height, double length, double width) throws SQLException {
         
         Connection conn = new DB().getConnection();
@@ -121,6 +124,7 @@ public class OrderMapper {
         
     }
     
+    @Override
     public void updateOrder(int oid, double height, double length, double width) throws SQLException {
         
         Connection conn = new DB().getConnection();
@@ -128,44 +132,15 @@ public class OrderMapper {
             String sql = "UPDATE `Order` SET height = ?, length = ?, width = ? WHERE oid = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
-            pstmt.setInt(1, oid);
-            pstmt.setDouble(2, height);
-            pstmt.setDouble(3, length);
-            pstmt.setDouble(4, width);
+            pstmt.setDouble(1, height);
+            pstmt.setDouble(2, length);
+            pstmt.setDouble(3, width);
+            pstmt.setInt(4, oid);
 
-            pstmt.execute();
-                System.out.println("efter updateOrder execute");
+            pstmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         
-    }
-
-    
-//    public boolean checkOrderIdExists(int orderId) {
-//        
-//        boolean userExists = false;
-//        try {
-//            Connection conn = new DB().getConnection();
-//            String sql = "SELECT * FROM order WHERE orderId = ?";
-//            PreparedStatement pstmt = conn.prepareStatement(sql);
-//            pstmt.setInt(1, orderId);
-//            ResultSet rs = pstmt.executeQuery();
-//            int IdCounter;
-//            if(rs.next()) {
-//                IdCounter = rs.getInt("orderId");
-//                if(IdCounter == orderId) {
-//                    System.out.println("OrderId already exists");
-//                    userExists = true;
-//                   
-//                }
-//            }
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//            
-//        }
-//        return userExists;
-//    }
-    
-    
+    }    
 }

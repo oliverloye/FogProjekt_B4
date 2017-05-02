@@ -17,8 +17,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <p>Order:</p>
-        
         <%
             CustomerMapper cm = new CustomerMapper();
             OrderMapper orderm = new OrderMapper();
@@ -34,17 +32,7 @@
             
             order = orderm.getOrder(intOid);
             customer = cm.getCustomer(intCid);
-            
-            out.print(order);
-            out.print("<br>");
-            out.print(customer);
-            out.print("<br>");
-            out.print(customer.getFirstName());
-            out.print("<br>");
-            out.print(customer.getAddress());
-            
-        
-        
+           
         out.print("<center>");
             out.print("<h1>Indtast dine oplysninger!</h1>");
             out.print("<form action=\"UpdateController\" method=\"POST\">");
@@ -64,6 +52,5 @@
             out.print("</form>");
         out.print("</center>");
         %>
-        
     </body>
 </html>

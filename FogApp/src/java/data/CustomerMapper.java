@@ -5,20 +5,20 @@
  */
 package data;
 
+import data.Interfaces.IcustomerMapper;
 import domain.entity.Customer;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author Oliver
  */
-public class CustomerMapper {
+public class CustomerMapper implements IcustomerMapper {
     
+    @Override
     public Customer getCustomer(int id) {
         Customer customer = null;
         try {
@@ -42,6 +42,7 @@ public class CustomerMapper {
         return customer;
     }
     
+    @Override
     public Customer getCustomerId (String fName, String lName, String mail) {
         Customer customer = null;
         try {  
@@ -67,6 +68,7 @@ public class CustomerMapper {
         return customer;
     }
     
+    @Override
     public void setCustomer(String firstName, String lastName, String address, String email, String phone) throws SQLException {
 
         Connection conn = new DB().getConnection();
@@ -89,6 +91,7 @@ public class CustomerMapper {
         }
     }
     
+    @Override
     public void updateCustomer(int cid, String firstName, String lastName, String address, String email, String phone) throws SQLException {
         
         Connection conn = new DB().getConnection();
@@ -96,20 +99,20 @@ public class CustomerMapper {
             String sql = "UPDATE `customer` SET firstName = ?, lastName = ?, address = ?, email = ?, phone = ? WHERE cid = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
-            pstmt.setInt(1, cid);
-            pstmt.setString(2, firstName);
-            pstmt.setString(3, lastName);
-            pstmt.setString(4, address);
-            pstmt.setString(5, email);
-            pstmt.setString(6, phone);
+            pstmt.setString(1, firstName);
+            pstmt.setString(2, lastName);
+            pstmt.setString(3, address);
+            pstmt.setString(4, email);
+            pstmt.setString(5, phone);
+            pstmt.setInt(6, cid);
 
-            pstmt.execute();
-                System.out.println("efter updateCustomer execute");
+            pstmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
-    
+
+    @Override
     public boolean checkEmailExists(String email) {
         
         boolean userExists = false;

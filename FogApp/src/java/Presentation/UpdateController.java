@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package data;
+package Presentation;
 
+import data.CustomerMapper;
+import data.OrderMapper;
 import domain.entity.Customer;
 import domain.entity.Order;
 import java.io.IOException;
@@ -65,7 +67,7 @@ public class UpdateController extends HttpServlet {
                     
                     System.out.println(iOid);
                     System.out.println(iCid);
-                    
+                    System.out.println("email: "+email);
                     om.updateOrder(iOid, dHeight, dLength, dWidth);
                     cm.updateCustomer(iCid, firstName, lastName, address, email, phone);
                     request.getRequestDispatcher("orderList.jsp").forward(request, response);
