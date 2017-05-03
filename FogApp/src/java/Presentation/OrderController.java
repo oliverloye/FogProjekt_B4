@@ -5,11 +5,9 @@
  */
 package Presentation;
 
-import data.CustomerMapper;
 import data.DataAccessFacade;
 import data.Interfaces.IcustomerMapper;
 import data.Interfaces.IorderMapper;
-import data.OrderMapper;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.ServletException;

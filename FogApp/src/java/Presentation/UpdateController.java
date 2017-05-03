@@ -6,6 +6,9 @@
 package Presentation;
 
 import data.CustomerMapper;
+import data.DataAccessFacade;
+import data.Interfaces.IcustomerMapper;
+import data.Interfaces.IorderMapper;
 import data.OrderMapper;
 import domain.entity.Customer;
 import domain.entity.Order;
@@ -29,8 +32,8 @@ public class UpdateController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-                CustomerMapper cm = new CustomerMapper();
-                OrderMapper om = new OrderMapper();
+                IcustomerMapper cm = new DataAccessFacade();
+                IorderMapper om = new DataAccessFacade();
                 int customerId;
                 
                 Order order = null;

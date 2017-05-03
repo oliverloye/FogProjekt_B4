@@ -5,6 +5,8 @@
  */
 package Presentation;
 
+import data.DataAccessFacade;
+import data.Interfaces.IorderMapper;
 import data.OrderMapper;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -24,7 +26,7 @@ public class DeleteController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        OrderMapper om = new OrderMapper();
+        IorderMapper om = new DataAccessFacade();
         
         response.setContentType("text/html;charset=UTF-8");
         
