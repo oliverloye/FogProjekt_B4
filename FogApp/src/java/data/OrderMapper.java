@@ -52,12 +52,11 @@ public class OrderMapper implements IorderMapper {
                 int orderId = rs.getInt("oid");
                 int customerId = rs.getInt("cid");
                 int productId = rs.getInt("pid");
-                int materialId = rs.getInt("mid");
                 int status = rs.getInt("status");
                 double height = rs.getDouble("height");
                 double length = rs.getDouble("length");
                 double width = rs.getDouble("width");
-                order = new Order(orderId, customerId, productId, materialId, status, height, length, width);
+                order = new Order(orderId, customerId, productId, status, height, length, width);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -81,12 +80,11 @@ public class OrderMapper implements IorderMapper {
                 int customerId = rs.getInt("cid");
                 int status = rs.getInt("status");
                 int productId = rs.getInt("pid");
-                int materialId = rs.getInt("mid");
                 double height = rs.getDouble("height");
                 double length = rs.getDouble("length");
                 double width = rs.getDouble("width");
                 
-                orders.add(new Order(orderId, customerId, status, productId, materialId, height, length, width));
+                orders.add(new Order(orderId, customerId, status, productId, height, length, width));
             }
             
             return orders;
@@ -105,7 +103,7 @@ public class OrderMapper implements IorderMapper {
         
         Connection conn = new DB().getConnection();
         try {
-            String sql = "INSERT INTO `Order`(oid, cid, status, pid, mid, height, length, width) VALUES (null,?,null,null,null,?,?,?)";
+            String sql = "INSERT INTO `Order`(oid, cid, pid, status, height, length, width) VALUES (null,?,null,null,?,?,?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
             

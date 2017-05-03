@@ -32,8 +32,8 @@ public class DataAccessFacade implements IcustomerMapper, IorderMapper {
     }
 
     @Override
-    public Customer getCustomerId(String fName, String lName, String mail) {
-        return cm.getCustomerId(fName, lName, mail);
+    public Customer getCustomerId(String mail) {
+        return cm.getCustomerId(mail);
     }
 
     @Override
