@@ -8,9 +8,13 @@ package domain.entity;
 /**
  *
  * @author Oliver
+ * This class creates a Customer object with attributes which can be stored in the database.
  */
 public class Customer {
     
+    /**
+     * This is the Customer ID which is auto-generated in the database.
+     */
     private int cid;
     private String firstName;
     private String lastName;
@@ -18,11 +22,22 @@ public class Customer {
     private String email;
     private String phone;
     
-    
+    /**
+     * This is an empty Customer constructor.
+     */
     public Customer() {
         
     }
-
+    
+    /**
+     * This is a Customer constructor containing all the parameters.
+     * @param cid
+     * @param firstName
+     * @param lastName
+     * @param address
+     * @param email
+     * @param phone 
+     */
     public Customer(int cid, String firstName, String lastName, String address, String email, String phone) {
         this.cid = cid;
         this.firstName = firstName;

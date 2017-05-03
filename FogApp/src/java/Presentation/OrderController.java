@@ -6,6 +6,9 @@
 package Presentation;
 
 import data.CustomerMapper;
+import data.DataAccessFacade;
+import data.Interfaces.IcustomerMapper;
+import data.Interfaces.IorderMapper;
 import data.OrderMapper;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -26,8 +29,8 @@ public class OrderController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-                CustomerMapper cm = new CustomerMapper();
-                OrderMapper om = new OrderMapper();
+                IcustomerMapper cm = new DataAccessFacade();
+                IorderMapper om = new DataAccessFacade();
                 int customerId;
                 
                 try {
@@ -55,7 +58,7 @@ public class OrderController extends HttpServlet {
 
                         cm.setCustomer(firstName, lastName, address, email, phone);
                         
-                        customerId = cm.getCustomerId(firstName, lastName, email).getCid();
+                        customerId = cm.getCustomerId(email).getCid();
 
                         om.setOrder(customerId, dHeight, dLength, dWidth);
 
@@ -63,7 +66,7 @@ public class OrderController extends HttpServlet {
 
                     } else {
 
-                        customerId = cm.getCustomerId(firstName, lastName, email).getCid();
+                        customerId = cm.getCustomerId(email).getCid();
 
                         om.setOrder(customerId, dHeight, dLength, dWidth);
 

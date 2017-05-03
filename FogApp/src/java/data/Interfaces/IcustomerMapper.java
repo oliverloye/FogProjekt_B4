@@ -18,7 +18,7 @@ public interface IcustomerMapper {
 
     Customer getCustomer(int id);
 
-    Customer getCustomerId(String fName, String lName, String mail);
+    Customer getCustomerId(String mail);
 
     void setCustomer(String firstName, String lastName, String address, String email, String phone) throws SQLException;
 

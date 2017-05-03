@@ -15,9 +15,15 @@ import java.sql.SQLException;
 /**
  *
  * @author Oliver
+ * This is a CustomerMapper which contains all the methods that connects to the database.
  */
 public class CustomerMapper implements IcustomerMapper {
     
+    /**
+     * This method has "Customer ID" as the input parameter and returns a Customer.
+     * @param id
+     * @return 
+     */
     @Override
     public Customer getCustomer(int id) {
         Customer customer = null;
@@ -42,16 +48,19 @@ public class CustomerMapper implements IcustomerMapper {
         return customer;
     }
     
+    /**
+     * This method has "email" as the input parameter and returns a Customer.
+     * @param mail
+     * @return 
+     */
     @Override
-    public Customer getCustomerId (String fName, String lName, String mail) {
+    public Customer getCustomerId (String mail) {
         Customer customer = null;
         try {  
             Connection conn = new DB().getConnection();
-            String sql = "SELECT * FROM `customer` WHERE firstName = ? AND lastName = ? AND email = ?";
+            String sql = "SELECT * FROM `customer` WHERE email = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, fName);
-            pstmt.setString(2, lName);
-            pstmt.setString(3, mail);
+            pstmt.setString(1, mail);
             ResultSet rs = pstmt.executeQuery();
             if(rs.next()) {
                 int customerId = rs.getInt("cid");
@@ -91,6 +100,16 @@ public class CustomerMapper implements IcustomerMapper {
         }
     }
     
+    /**
+     * This method updates a Customer in the database by its input parameters.
+     * @param cid
+     * @param firstName
+     * @param lastName
+     * @param address
+     * @param email
+     * @param phone
+     * @throws SQLException 
+     */
     @Override
     public void updateCustomer(int cid, String firstName, String lastName, String address, String email, String phone) throws SQLException {
         
@@ -112,6 +131,11 @@ public class CustomerMapper implements IcustomerMapper {
         }
     }
 
+    /**
+     * This method checks if a Customer already exists in the database by it's email.
+     * @param email
+     * @return 
+     */
     @Override
     public boolean checkEmailExists(String email) {
         
