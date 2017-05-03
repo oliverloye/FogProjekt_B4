@@ -68,7 +68,7 @@
                     out.print("</table>");
                 %>
             </p>
-            <form name="backButton" action="index.html"> 
+            <form name="backButton" action="adminPage.html"> 
                 <button type="submit" id="A3" class="button button1">Tilbage</button>
             </form>
     </body>

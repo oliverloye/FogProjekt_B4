@@ -13,7 +13,6 @@ public class Order {
     
     private int oid;
     private int cid;
-    private int pid;
     private int status;
     private double height;
     private double length;
@@ -26,11 +25,10 @@ public class Order {
         
     }
 
-    public Order(int oid, int cid, int pid, int status, double height, double length, double width) {
+    public Order(int oid, int cid, int status, double height, double length, double width) {
         this.oid = oid;
         this.cid = cid;
         this.status = status;
-        this.pid = pid;
         this.height = height;
         this.length = length;
         this.width = width;
@@ -53,11 +51,6 @@ public class Order {
     public void setStatus(int status) {
         this.status = status;
     }
-
-    public int getPid() {
-        return pid;
-    }
-
 
     public double getHeight() {
         return height;
@@ -85,7 +78,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "Order ID=" + oid + ", Customer ID=" + cid + ", pid=" + pid + ", status=" + status + ", heigth=" + height + ", length=" + length + ", width=" + width + '}';
+        return "Order{" + "Order ID=" + oid + ", Customer ID=" + cid + ", status=" + status + ", heigth=" + height + ", length=" + length + ", width=" + width + '}';
     }
 
     
