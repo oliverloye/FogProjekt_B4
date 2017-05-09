@@ -60,7 +60,7 @@ public class OrderController extends HttpServlet {
 
                         om.setOrder(customerId, dHeight, dLength, dWidth);
 
-                        request.getRequestDispatcher("index.html").forward(request, response);
+                        request.getRequestDispatcher("completedOrder.html").forward(request, response);
 
                     } else {
 
@@ -68,7 +68,7 @@ public class OrderController extends HttpServlet {
 
                         om.setOrder(customerId, dHeight, dLength, dWidth);
 
-                        request.getRequestDispatcher("index.html").forward(request, response);
+                        request.getRequestDispatcher("completedOrder.html").forward(request, response);
 
 
                     } 
@@ -77,10 +77,10 @@ public class OrderController extends HttpServlet {
                 }
                 
                 
-        }
+    }
     
 
-@Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
