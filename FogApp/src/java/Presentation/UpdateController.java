@@ -68,33 +68,10 @@ public class UpdateController extends HttpServlet {
                     double dLength = Double.parseDouble(length);
                     double dWidth = Double.parseDouble(width);
                     
-                    System.out.println(iOid);
-                    System.out.println(iCid);
-                    System.out.println("email: "+email);
                     om.updateOrder(iOid, dHeight, dLength, dWidth);
                     cm.updateCustomer(iCid, firstName, lastName, address, email, phone);
                     request.getRequestDispatcher("orderList.jsp").forward(request, response);
 
-//                    if(cm.checkEmailExists(email) == false) {
-//
-//                        cm.setCustomer(firstName, lastName, address, email, phone);
-//                        
-//                        customerId = cm.getCustomerId(firstName, lastName, email).getCid();
-//
-//                        om.setOrder(customerId, dHeight, dLength, dWidth);
-//
-//                        request.getRequestDispatcher("index.html").forward(request, response);
-//
-//                    } else {
-//
-//                        customerId = cm.getCustomerId(firstName, lastName, email).getCid();
-//
-//                        om.setOrder(customerId, dHeight, dLength, dWidth);
-//
-//                        request.getRequestDispatcher("index.html").forward(request, response);
-//
-//
-//                    } 
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }

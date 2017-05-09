@@ -25,7 +25,7 @@
               <br>   Bredde: <br>  <br>   <input type="text" name="width"><br>
               <br>   Længde:  <br> <br>   <input type="text" name="length"><br>
                 <br>
-                <button type="submit" formaction="index.html" id="A3" class="button button1">Tilbage</button>
+                <button type="submit" formaction="adminPage.html" id="A3" class="button button1">Tilbage</button>
                 <input type="submit" name="submit" value="Opret" class="button button1">
             </form>
         </center>

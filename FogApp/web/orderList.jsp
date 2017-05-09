@@ -24,13 +24,10 @@
                         out.print("<tr> "
                                     + "<th>Ordre ID</th>"
                                     + "<th>Kunde ID</th>"
-                                    + "<th>Produkt ID</th>"
-                                    + "<th>Materiale ID</th>"
                                     + "<th>Højde</th>"
                                     + "<th>Længde</th>"
                                     + "<th>Bredde</th>"
                                     + "<th>Status</th>"
-                                    + "<th></th>"
                                 + "</tr>");
                             
                     OrderMapper orderm = new OrderMapper();
@@ -42,8 +39,6 @@
                             out.print("<tr>");
                                 out.print("<td>" + order.getOid()+ "</td>");
                                 out.print("<td>" + order.getCid()+ "</td>");
-                                out.print("<td>" + order.getPid()+ "</td>");
-                                out.print("<td>" + order.getMid()+ "</td>");
                                 out.print("<td>" + order.getHeight()+ "</td>");
                                 out.print("<td>" + order.getLength()+ "</td>");
                                 out.print("<td>" + order.getWidth()+ "</td>");
