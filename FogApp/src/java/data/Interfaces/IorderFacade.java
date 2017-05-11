@@ -5,7 +5,7 @@
  */
 package data.Interfaces;
 
-import domain.entity.Order;
+import business.entity.Order;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author Oliver
  */
-public interface IorderMapper {
+public interface IorderFacade {
 
     void deleteOrder(int id);
 

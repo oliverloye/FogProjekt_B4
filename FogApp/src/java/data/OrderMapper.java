@@ -5,19 +5,19 @@
  */
 package data;
 
-import data.Interfaces.IorderMapper;
-import domain.entity.Order;
+import business.entity.Order;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import data.Interfaces.IorderFacade;
 
 /**
  *
  * @author Oliver
  */
-public class OrderMapper implements IorderMapper {
+public class OrderMapper implements IorderFacade {
     
     @Override
     public void deleteOrder(int id) {

@@ -5,14 +5,14 @@
  */
 package data.Interfaces;
 
-import domain.entity.Customer;
+import business.entity.Customer;
 import java.sql.SQLException;
 
 /**
  *
  * @author Oliver
  */
-public interface IcustomerMapper {
+public interface IcustomerFacade {
 
     boolean checkEmailExists(String email);
 
