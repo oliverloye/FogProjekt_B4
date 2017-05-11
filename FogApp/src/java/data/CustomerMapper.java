@@ -5,19 +5,19 @@
  */
 package data;
 
-import data.Interfaces.IcustomerMapper;
-import domain.entity.Customer;
+import business.entity.Customer;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import data.Interfaces.IcustomerFacade;
 
 /**
  *
  * @author Oliver
  * This is a CustomerMapper which contains all the methods that connects to the database.
  */
-public class CustomerMapper implements IcustomerMapper {
+public class CustomerMapper implements IcustomerFacade {
     
     /**
      * This method has "Customer ID" as the input parameter and returns a Customer.

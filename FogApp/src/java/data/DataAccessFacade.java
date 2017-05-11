@@ -5,18 +5,18 @@
  */
 package data;
 
-import data.Interfaces.IcustomerMapper;
-import data.Interfaces.IorderMapper;
-import domain.entity.Customer;
-import domain.entity.Order;
+import business.entity.Customer;
+import business.entity.Order;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import data.Interfaces.IcustomerFacade;
+import data.Interfaces.IorderFacade;
 
 /**
  *
  * @author Oliver
  */
-public class DataAccessFacade implements IcustomerMapper, IorderMapper {
+public class DataAccessFacade implements IcustomerFacade, IorderFacade {
     
     CustomerMapper cm = new CustomerMapper();
     OrderMapper om = new OrderMapper();

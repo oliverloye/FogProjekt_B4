@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Presentation;
+package presentation;
 
 import data.DataAccessFacade;
-import data.Interfaces.IorderMapper;
 import data.OrderMapper;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import data.Interfaces.IorderFacade;
 
 /**
  *
@@ -26,7 +26,7 @@ public class DeleteController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        IorderMapper om = new DataAccessFacade();
+        IorderFacade om = new DataAccessFacade();
         
         response.setContentType("text/html;charset=UTF-8");
         
