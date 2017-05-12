@@ -18,6 +18,7 @@ public interface IcustomerFacade {
      * This method checks if a Customer already exists in the database by it's email.
      * @param email
      * @return 
+     * 
      */
     boolean checkEmailExists(String email);
 
