@@ -46,7 +46,7 @@ public class OrderController extends HttpServlet {
                     String length = request.getParameter("length");
                     String width = request.getParameter("width");
 
-                    //Der skal være en tjek-funktion, som tjekker om input fra jsp er korrekt input, før vi arbejder videre med data.
+                    //Der bør være en tjek-funktion, som tjekker om input fra jsp er korrekt type input, før vi arbejder videre med data.
                     //Laver carports mål om til double
                     double dHeight = Double.parseDouble(height);
                     double dLength = Double.parseDouble(length);

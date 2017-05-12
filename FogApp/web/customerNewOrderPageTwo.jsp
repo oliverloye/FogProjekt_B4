@@ -20,7 +20,6 @@
                 String length = (String)request.getAttribute("length");
                 String width = (String)request.getAttribute("width");
                 String total = (String)request.getAttribute("stringTotal");
-                System.out.println(height);
             %>
             <img src="/img/carport.jpg" alt="Carport" style="width:304px;height:228px;"/>
             <br>
@@ -48,7 +47,7 @@
                   out.print("<input type=\"hidden\" name=\"length\" value=\""+ length +"\">");
                   out.print("<input type=\"hidden\" name=\"width\" value=\""+ width +"\">");
               %>
-                <button type="submit" formaction="CustomerNewOrder.jsp" id="A3" class="button button1">Tilbage</button>
+                <button type="submit" formaction="customerNewOrderPageOne.jsp" id="A3" class="button button1">Tilbage</button>
                 <input type="submit" name="submit" value="Ja tak, bestil" class="button button1">
             </form>
         </center>

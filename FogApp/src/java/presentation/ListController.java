@@ -5,10 +5,10 @@
  */
 package presentation;
 
-import data.OrderMapper;
 import business.entity.Order;
+import data.DataAccessFacade;
+import data.Interfaces.IorderFacade;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,7 +35,7 @@ public class ListController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-                OrderMapper orderm = new OrderMapper();
+                IorderFacade orderm = new DataAccessFacade();
                 int orderId;
                     
                 List<Order> allOrders = orderm.getOrders();

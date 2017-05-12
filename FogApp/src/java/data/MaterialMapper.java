@@ -5,7 +5,7 @@
  */
 package data;
 
-import data.DB;
+import data.Interfaces.ImaterialFacade;
 import business.entity.Material;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,8 +16,9 @@ import java.sql.SQLException;
  *
  * @author Oliver
  */
-public class MaterialMapper {
+public class MaterialMapper implements ImaterialFacade {
     
+    @Override
     public Material getMaterial(int id) {
         Material material = null;
         try {
