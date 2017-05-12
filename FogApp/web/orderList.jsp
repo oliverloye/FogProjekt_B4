@@ -4,8 +4,10 @@
     Author     : Oliver
 --%>
 
+<%@page import="data.DataAccessFacade"%>
+<%@page import="data.Interfaces.IorderFacade"%>
 <%@page import="java.util.List"%>
-<%@page import="domain.entity.Order"%>
+<%@page import="business.entity.Order"%>
 <%@page import="data.OrderMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -30,7 +32,7 @@
                                     + "<th>Status</th>"
                                 + "</tr>");
                             
-                    OrderMapper orderm = new OrderMapper();
+                    IorderFacade orderm = new DataAccessFacade();
                     int orderId;
                     
                     List<Order> allOrders = orderm.getOrders();
@@ -47,7 +49,7 @@
                                         + "<form name=\"orderList\" action=\"editOrder.jsp\" method=\"POST\">"
                                         + "<input type=\"hidden\" name=\"orderId\" value=" + order.getOid() +">"
                                         + "<input type=\"hidden\" name=\"customerId\" value=" + order.getCid() +">"
-                                        + "<input type=\"submit\" value=\"Rediger\">"
+                                        + "<input type=\"submit\" value=\"Se/Rediger\">"
                                         + "</form>"
                                         + "</td>");
                                 out.print("<td>"

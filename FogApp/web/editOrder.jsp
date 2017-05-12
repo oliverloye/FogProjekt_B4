@@ -3,11 +3,13 @@
     Created on : Apr 20, 2017, 11:47:48 AM
     Author     : Oliver
 --%>
-<%@page import="domain.entity.Customer"%>
-<%@page import="domain.entity.Order"%>
+<%@page import="data.Interfaces.IcustomerFacade"%>
+<%@page import="data.DataAccessFacade"%>
+<%@page import="data.Interfaces.IorderFacade"%>
+<%@page import="business.entity.Customer"%>
+<%@page import="business.entity.Order"%>
 <%@page import="data.CustomerMapper"%>
 <%@page import="data.OrderMapper"%>
-<% OrderMapper om = new OrderMapper(); %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,8 +20,8 @@
     </head>
     <body>
         <%
-            CustomerMapper cm = new CustomerMapper();
-            OrderMapper orderm = new OrderMapper();
+            IcustomerFacade cm = new DataAccessFacade();
+            IorderFacade orderm = new DataAccessFacade();
             
             Order order = null;
             Customer customer = null;

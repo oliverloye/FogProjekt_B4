@@ -6,20 +6,23 @@
 package data;
 
 import business.entity.Customer;
+import business.entity.Material;
 import business.entity.Order;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import data.Interfaces.IcustomerFacade;
+import data.Interfaces.ImaterialFacade;
 import data.Interfaces.IorderFacade;
 
 /**
  *
  * @author Oliver
  */
-public class DataAccessFacade implements IcustomerFacade, IorderFacade {
+public class DataAccessFacade implements IcustomerFacade, IorderFacade, ImaterialFacade {
     
     CustomerMapper cm = new CustomerMapper();
     OrderMapper om = new OrderMapper();
+    MaterialMapper mm = new MaterialMapper();
 
     @Override
     public boolean checkEmailExists(String email) {
@@ -69,6 +72,11 @@ public class DataAccessFacade implements IcustomerFacade, IorderFacade {
     @Override
     public void updateOrder(int oid, double height, double length, double width) throws SQLException {
         om.updateOrder(oid, height, length, width);
+    }
+
+    @Override
+    public Material getMaterial(int id) {
+        return mm.getMaterial(id);
     }
     
 }
