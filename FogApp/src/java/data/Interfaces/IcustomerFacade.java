@@ -8,6 +8,8 @@ package data.Interfaces;
 import business.entity.Customer;
 import java.sql.SQLException;
 
+//This is a github comment!
+
 /**
  *This is an interface of the CustomerMapper which contains all the methods that connects to the database.
  * @author Oliver

@@ -3,31 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/data/OrderMapper.java</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/presentation/DeleteController.java</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/web/newOrder.jsp</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/data/DataAccessFacade.java</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/presentation/CalculateController.java</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/web/customerNewOrderPageOne.jsp</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/data/DB.java</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/web/login.html</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/business/Calculator.java</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/data/CustomerMapper.java</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/web/customerNewOrderPageTwo.jsp</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/presentation/UpdateController.java</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/presentation/OrderController.java</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/web/editOrder.jsp</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/data/Interfaces/IorderFacade.java</file>
             <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/data/Interfaces/IcustomerFacade.java</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/business/entity/Material.java</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/data/MaterialMapper.java</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/data/package-info.java</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/business/entity/Customer.java</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/web/adminPage.html</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/web/index.html</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/web/orderList.jsp</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/presentation/ListController.java</file>
-            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/web/completedOrder.html</file>
         </group>
     </open-files>
 </project-private>
