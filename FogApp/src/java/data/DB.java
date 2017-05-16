@@ -13,16 +13,16 @@ public class DB {
     private static DB instance;
     private static PreparedStatement stmt;
     private static String driver = "com.mysql.jdbc.Driver";
+
     private static String URL = "jdbc:mysql://localhost:3306/FOG";
     private static String id = "root";
     private static String pw = "";
 
+
     public Connection getConnection() {
         Connection con = null;
         try {
-            
             Class.forName(driver);
-            
             con = DriverManager.getConnection(URL, id, pw);  // The connection will be released upon program 
 
         } catch (Exception e) {
