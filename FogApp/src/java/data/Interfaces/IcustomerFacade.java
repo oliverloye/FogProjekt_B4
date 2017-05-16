@@ -61,4 +61,12 @@ public interface IcustomerFacade {
      */
     void updateCustomer(int cid, String firstName, String lastName, String address, String email, String phone) throws SQLException;
     
+    /**
+     * This methods checks if the email address is stored in the database and returns an object of a Customer.
+     * @param username
+     * @param password
+     * @return 
+     */
+    public Customer validateCustomer(String mail);
+    
 }
