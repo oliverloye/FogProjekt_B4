@@ -34,7 +34,7 @@ public class OrderController extends HttpServlet {
                 try {
                     response.setContentType("text/html; charset=UTF-8");
 
-                    //Henter data fra newOrder.jsp
+                    //Henter data fra customerNewOrderPageTwo.jsp
                     //Customer data
                     String firstName = request.getParameter("firstName");
                     String lastName = request.getParameter("lastName");
@@ -45,12 +45,15 @@ public class OrderController extends HttpServlet {
                     String height = request.getParameter("height");
                     String length = request.getParameter("length");
                     String width = request.getParameter("width");
+                    String totalPrice = request.getParameter("totalPrice");
 
                     //Der bør være en tjek-funktion, som tjekker om input fra jsp er korrekt type input, før vi arbejder videre med data.
                     //Laver carports mål om til double
                     double dHeight = Double.parseDouble(height);
                     double dLength = Double.parseDouble(length);
                     double dWidth = Double.parseDouble(width);
+                    double dTotalPrice = Double.parseDouble(totalPrice);
+                    
 
                     if(cm.checkEmailExists(email) == false) {
 
@@ -58,7 +61,7 @@ public class OrderController extends HttpServlet {
                         
                         customerId = cm.getCustomerId(email).getCid();
 
-                        om.setOrder(customerId, dHeight, dLength, dWidth);
+                        om.setOrder(customerId, dHeight, dLength, dWidth, dTotalPrice);
 
                         request.getRequestDispatcher("completedOrder.html").forward(request, response);
 
@@ -66,7 +69,7 @@ public class OrderController extends HttpServlet {
 
                         customerId = cm.getCustomerId(email).getCid();
 
-                        om.setOrder(customerId, dHeight, dLength, dWidth);
+                        om.setOrder(customerId, dHeight, dLength, dWidth, dTotalPrice);
 
                         request.getRequestDispatcher("completedOrder.html").forward(request, response);
 

@@ -46,6 +46,7 @@
                   out.print("<input type=\"hidden\" name=\"height\" value=\""+ height +"\">");
                   out.print("<input type=\"hidden\" name=\"length\" value=\""+ length +"\">");
                   out.print("<input type=\"hidden\" name=\"width\" value=\""+ width +"\">");
+                  out.print("<input type=\"hidden\" name=\"totalPrice\" value=\""+ total +"\">");
               %>
                 <button type="submit" formaction="customerNewOrderPageOne.jsp" id="A3" class="button button1">Tilbage</button>
                 <input type="submit" name="submit" value="Ja tak, bestil" class="button button1">

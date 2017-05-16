@@ -19,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Oliver
  */
-@WebServlet(name = "CalculateController", urlPatterns = {"/CalculateController"})
-public class CalculateController extends HttpServlet {
+@WebServlet(name = "CalculateAdminController", urlPatterns = {"/CalculateAdminController"})
+public class CalculateAdminController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -31,6 +31,14 @@ public class CalculateController extends HttpServlet {
         Calculator cal = new Calculator();
         
         response.setContentType("text/html;charset=UTF-8");
+        
+        //Henter data fra newOrder.jsp
+        //Customer data
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String address = request.getParameter("address");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
         
 
         //Dimensioner divideres med 100 da kundens input er i cm og prisen
@@ -47,12 +55,19 @@ public class CalculateController extends HttpServlet {
         String length = request.getParameter("length");
         String width = request.getParameter("width");
 
+        //Sender Customer videre
+        request.setAttribute("firstName", firstName);
+        request.setAttribute("lastName", lastName);
+        request.setAttribute("address", address);
+        request.setAttribute("email", email);
+        request.setAttribute("phone", phone);
+        //Sender Order videre
         request.setAttribute("height", height);
         request.setAttribute("length", length);
         request.setAttribute("width", width);
         request.setAttribute("stringTotal", stringTotal);
 
-        request.getRequestDispatcher("customerNewOrderPageTwo.jsp").forward(request, response);
+        request.getRequestDispatcher("OrderAdminController").forward(request, response);
 
         
     }

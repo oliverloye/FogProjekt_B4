@@ -29,7 +29,7 @@
                                     + "<th>Højde</th>"
                                     + "<th>Længde</th>"
                                     + "<th>Bredde</th>"
-                                    + "<th>Status</th>"
+                                    + "<th>Pris i kr.</th>"
                                 + "</tr>");
                             
                     IorderFacade orderm = new DataAccessFacade();
@@ -44,7 +44,7 @@
                                 out.print("<td>" + order.getHeight()+ "</td>");
                                 out.print("<td>" + order.getLength()+ "</td>");
                                 out.print("<td>" + order.getWidth()+ "</td>");
-                                out.print("<td>" + order.getStatus()+ "</td>");
+                                out.print("<td>" + order.getTotalPrice()+ "</td>");
                                 out.print("<td>"
                                         + "<form name=\"orderList\" action=\"editOrder.jsp\" method=\"POST\">"
                                         + "<input type=\"hidden\" name=\"orderId\" value=" + order.getOid() +">"

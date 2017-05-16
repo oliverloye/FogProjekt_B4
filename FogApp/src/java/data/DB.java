@@ -14,9 +14,9 @@ public class DB {
     private static PreparedStatement stmt;
     private static String driver = "com.mysql.jdbc.Driver";
 
-    private static String URL = "jdbc:mysql://localhost:3306/FOG";
-    private static String id = "root";
-    private static String pw = "";
+    private static String URL = "jdbc:mysql://207.154.194.224:3306/FOG";
+    private static String id = "foguser";
+    private static String pw = "pass1234";
 
 
     public Connection getConnection() {

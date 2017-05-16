@@ -21,8 +21,8 @@ import data.Interfaces.IorderFacade;
  *
  * @author Oliver
  */
-@WebServlet(name = "OrderControllerAdmin", urlPatterns = {"/OrderControllerAdmin"})
-public class OrderControllerAdmin extends HttpServlet {
+@WebServlet(name = "OrderAdminController", urlPatterns = {"/OrderAdminController"})
+public class OrderAdminController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -34,23 +34,28 @@ public class OrderControllerAdmin extends HttpServlet {
                 try {
                     response.setContentType("text/html; charset=UTF-8");
 
-                    //Henter data fra newOrder.jsp
+                    //Henter data fra CalculateAdminController
                     //Customer data
-                    String firstName = request.getParameter("firstName");
-                    String lastName = request.getParameter("lastName");
-                    String address = request.getParameter("address");
-                    String email = request.getParameter("email");
-                    String phone = request.getParameter("phone");
+                    String firstName = (String) request.getAttribute("firstName");
+                    String lastName = (String) request.getAttribute("lastName");
+                    String address = (String) request.getAttribute("address");
+                    String email = (String) request.getAttribute("email");
+                    String phone = (String) request.getAttribute("phone");
                     //Order data
-                    String height = request.getParameter("height");
-                    String length = request.getParameter("length");
-                    String width = request.getParameter("width");
+                    String height = (String) request.getAttribute("height");
+                    String length = (String) request.getAttribute("length");
+                    String width = (String) request.getAttribute("width");
+                    String totalPrice = (String) request.getAttribute("stringTotal");
 
                     //Der bør være en tjek-funktion, som tjekker om input fra jsp er korrekt type input, før vi arbejder videre med data.
                     //Laver carports mål om til double
                     double dHeight = Double.parseDouble(height);
                     double dLength = Double.parseDouble(length);
                     double dWidth = Double.parseDouble(width);
+                    double dTotalPrice = Double.parseDouble(totalPrice);
+                    
+                    System.out.println(totalPrice);
+                    System.out.println(dTotalPrice);
 
                     if(cm.checkEmailExists(email) == false) {
 
@@ -58,7 +63,7 @@ public class OrderControllerAdmin extends HttpServlet {
                         
                         customerId = cm.getCustomerId(email).getCid();
 
-                        om.setOrder(customerId, dHeight, dLength, dWidth);
+                        om.setOrder(customerId, dHeight, dLength, dWidth, dTotalPrice);
 
                         request.getRequestDispatcher("adminPage.html").forward(request, response);
 
@@ -66,7 +71,7 @@ public class OrderControllerAdmin extends HttpServlet {
 
                         customerId = cm.getCustomerId(email).getCid();
 
-                        om.setOrder(customerId, dHeight, dLength, dWidth);
+                        om.setOrder(customerId, dHeight, dLength, dWidth, dTotalPrice);
 
                         request.getRequestDispatcher("adminPage.html").forward(request, response);
 

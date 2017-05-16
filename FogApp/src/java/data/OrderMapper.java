@@ -81,8 +81,43 @@ public class OrderMapper implements IorderFacade {
                 double height = rs.getDouble("height");
                 double length = rs.getDouble("length");
                 double width = rs.getDouble("width");
+                double price = rs.getDouble("price");
                 
-                orders.add(new Order(orderId, customerId, status, height, length, width));
+                orders.add(new Order(orderId, customerId, status, height, length, width, price));
+            }
+            
+            return orders;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } 
+        
+        return null;
+        
+    }
+    
+    @Override
+    public ArrayList<Order> getOrders(int id) {
+        ArrayList<Order> orders = new ArrayList<>();
+        
+        try {
+            
+            Connection conn = new DB().getConnection();
+            
+            String sql = "SELECT * FROM `Order` WHERE cid = ? AND Relevant = TRUE";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id);
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()) {
+                int orderId = rs.getInt("oid");
+                int customerId = rs.getInt("cid");
+                int status = rs.getInt("status");
+                double height = rs.getDouble("height");
+                double length = rs.getDouble("length");
+                double width = rs.getDouble("width");
+                double price = rs.getDouble("price");
+                
+                orders.add(new Order(orderId, customerId, status, height, length, width, price));
             }
             
             return orders;
@@ -97,11 +132,11 @@ public class OrderMapper implements IorderFacade {
     
 
     @Override
-        public void setOrder(int customerId, double height, double length, double width) throws SQLException {
+    public void setOrder(int customerId, double height, double length, double width, double totalPrice) throws SQLException {
         
         Connection conn = new DB().getConnection();
         try {
-            String sql = "INSERT INTO `Order`(oid, cid, status, height, length, width) VALUES (null,?,null,?,?,?)";
+            String sql = "INSERT INTO `Order`(oid, cid, status, height, length, width, Relevant, price) VALUES (null,?,null,?,?,?,1,?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
             
@@ -109,6 +144,7 @@ public class OrderMapper implements IorderFacade {
             pstmt.setDouble(2, height);
             pstmt.setDouble(3, length);
             pstmt.setDouble(4, width);
+            pstmt.setDouble(5, totalPrice);
             
             
             pstmt.execute();
@@ -138,5 +174,30 @@ public class OrderMapper implements IorderFacade {
             ex.printStackTrace();
         }
         
-    }    
+    }
+    
+    @Override
+    public Order getCustomerOrders(int cid) {
+        Order order = null;
+        try {
+            Connection conn = new DB().getConnection();
+            String sql = "SELECT * FROM `Order` WHERE cid = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, cid);
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next()) {
+                int orderId = rs.getInt("oid");
+                int customerId = rs.getInt("cid");
+                int status = rs.getInt("status");
+                double height = rs.getDouble("height");
+                double length = rs.getDouble("length");
+                double width = rs.getDouble("width");
+                double totalPrice = rs.getDouble("totalPrice");
+                order = new Order(orderId, customerId, status, height, length, width, totalPrice);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return order;
+    }
 }
