@@ -3,8 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Ejer/Desktop/CPH/NetBeans/FogProjekt_B4/FogApp/web/newOrder.jsp</file>
-            <file>file:/C:/Users/Ejer/Desktop/CPH/NetBeans/FogProjekt_B4/FogApp/web/adminPage.html</file>
+            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/data/Interfaces/IcustomerFacade.java</file>
+            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/data/OrderMapper.java</file>
+            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/web/newOrder.jsp</file>
+            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/web/customerNewOrderPageOne.jsp</file>
+            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/web/index.html</file>
+            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/web/login.html</file>
+            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/data/DB.java</file>
+            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/web/orderList.jsp</file>
+            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/data/CustomerMapper.java</file>
+            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/web/customerNewOrderPageTwo.jsp</file>
+            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/src/java/presentation/OrderController.java</file>
+            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/web/editOrder.jsp</file>
+            <file>file:/Users/Oliver/Desktop/GitFogB4/FogProjekt_B4/FogApp/web/completedOrder.html</file>
         </group>
     </open-files>
 </project-private>

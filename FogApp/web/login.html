@@ -6,11 +6,18 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="newcss.css" type="text/css" rel="stylesheet"/>
+        <title>Login</title>
     </head>
     <body>
-        <div>TODO write content</div>
+        <center>
+            <h1>Login med din emailadresse.</h1>
+            <form action="LoginController" method="POST">
+                Email: <br><br> <input type="text" name="email"><br><br>
+                <button type="submit" formaction="index.html" id="A3" class="button button1">Tilbage</button>
+                <input type="submit" name="submit" value="Login" class="button button1">
+            </form>
+        </center>
     </body>
 </html>

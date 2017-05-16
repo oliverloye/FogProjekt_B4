@@ -161,5 +161,34 @@ public class CustomerMapper implements IcustomerFacade {
         }
         return userExists;
     }
-    
+
+    @Override
+    public Customer validateCustomer(String mail) {
+        try
+        {
+            Connection conn = new DB().getConnection();
+            String sql = "SELECT * FROM customer WHERE email = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, mail);
+            ResultSet rs = pstmt.executeQuery();
+            
+            if (rs.next())
+            {
+                int cid = rs.getInt("cid");
+                String firstname = rs.getString("firstname");
+                String lastname = rs.getString("lastname");
+                String address = rs.getString("address");
+                String email = rs.getString("email");
+                String phone = rs.getString("phone");
+                return new Customer(cid, firstname, lastname, address, email, phone);
+            }
+
+        }
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+        
+        return null;
+    }
 }

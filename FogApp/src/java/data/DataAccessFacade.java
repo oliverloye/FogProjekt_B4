@@ -78,5 +78,10 @@ public class DataAccessFacade implements IcustomerFacade, IorderFacade, Imateria
     public Material getMaterial(int id) {
         return mm.getMaterial(id);
     }
+
+    @Override
+    public Customer validateCustomer(String email) {
+        return cm.validateCustomer(email);
+    }
     
 }
