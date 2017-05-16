@@ -15,7 +15,7 @@ public class DB {
     private static String driver = "com.mysql.jdbc.Driver";
     private static String URL = "jdbc:mysql://localhost:3306/FOG";
     private static String id = "root";
-    private static String pw = "Kode1325";
+    private static String pw = "";
 
     public Connection getConnection() {
         Connection con = null;
