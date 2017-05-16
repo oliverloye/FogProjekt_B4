@@ -15,7 +15,7 @@
     <body>
         <center>
             <h1>Indtast dine oplysninger!</h1>
-            <form action="OrderControllerAdmin" method="POST">
+            <form action="CalculateAdminController" method="POST">
                 Fornavn: <br> <br>  <input type="text" name="firstName"><br>
               <br>   Efternavn: <br><br>  <input type="text" name="lastName"><br>
               <br>   Tlf. Nr:   <br><br>  <input type="text" name="phone"><br>

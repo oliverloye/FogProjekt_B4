@@ -17,6 +17,7 @@ public class Order {
     private double height;
     private double length;
     private double width;
+    private double totalPrice;
     
     
     
@@ -32,6 +33,16 @@ public class Order {
         this.height = height;
         this.length = length;
         this.width = width;
+    }
+    
+    public Order(int oid, int cid, int status, double height, double length, double width, double totalPrice) {
+        this.oid = oid;
+        this.cid = cid;
+        this.status = status;
+        this.height = height;
+        this.length = length;
+        this.width = width;
+        this.totalPrice = totalPrice;
     }
 
     public int getOid() {
@@ -74,6 +85,10 @@ public class Order {
 
     public void setWidth(double width) {
         this.width = width;
+    }
+    
+    public double getTotalPrice() {
+        return totalPrice;
     }
 
     @Override

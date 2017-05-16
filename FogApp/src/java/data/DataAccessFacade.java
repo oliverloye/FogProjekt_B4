@@ -63,10 +63,15 @@ public class DataAccessFacade implements IcustomerFacade, IorderFacade, Imateria
     public ArrayList<Order> getOrders() {
         return om.getOrders();
     }
+    
+    @Override
+    public ArrayList<Order> getOrders(int id) {
+        return om.getOrders(id);
+    }
 
     @Override
-    public void setOrder(int customerId, double height, double length, double width) throws SQLException {
-        om.setOrder(customerId, height, length, width);
+    public void setOrder(int customerId, double height, double length, double width, double totalPrice) throws SQLException {
+        om.setOrder(customerId, height, length, width, totalPrice);
     }
 
     @Override
@@ -82,6 +87,11 @@ public class DataAccessFacade implements IcustomerFacade, IorderFacade, Imateria
     @Override
     public Customer validateCustomer(String email) {
         return cm.validateCustomer(email);
+    }
+    
+    @Override
+    public Order getCustomerOrders(int cid) {
+        return om.getCustomerOrders(cid);
     }
     
 }

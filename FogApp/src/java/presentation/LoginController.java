@@ -34,12 +34,12 @@ public class LoginController extends HttpServlet {
         
         HttpSession session = request.getSession();
         
-        Customer customer;
-        String email;
+        Customer customer = new Customer();
+        String email = null;
         
         response.setContentType("text/html; charset=UTF-8");
         
-        session = request.getSession();
+        //session = request.getSession();
         //Get data from login.jsp
         email = request.getParameter("email");
         customer = cm.validateCustomer(email);

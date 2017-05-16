@@ -20,33 +20,13 @@ public interface IorderFacade {
     Order getOrder(int id);
 
     ArrayList<Order> getOrders();
+    
+    ArrayList<Order> getOrders(int id);
 
-    void setOrder(int customerId, double height, double length, double width) throws SQLException;
+    void setOrder(int customerId, double height, double length, double width, double totalPrice) throws SQLException;
 
     void updateOrder(int oid, double height, double length, double width) throws SQLException;
-    //    public boolean checkOrderIdExists(int orderId) {
-    //
-    //        boolean userExists = false;
-    //        try {
-    //            Connection conn = new DB().getConnection();
-    //            String sql = "SELECT * FROM order WHERE orderId = ?";
-    //            PreparedStatement pstmt = conn.prepareStatement(sql);
-    //            pstmt.setInt(1, orderId);
-    //            ResultSet rs = pstmt.executeQuery();
-    //            int IdCounter;
-    //            if(rs.next()) {
-    //                IdCounter = rs.getInt("orderId");
-    //                if(IdCounter == orderId) {
-    //                    System.out.println("OrderId already exists");
-    //                    userExists = true;
-    //
-    //                }
-    //            }
-    //        } catch (SQLException ex) {
-    //            ex.printStackTrace();
-    //
-    //        }
-    //        return userExists;
-    //    }
+    
+    Order getCustomerOrders(int cid);
     
 }
