@@ -31,7 +31,7 @@ public class UpdateController extends HttpServlet {
         
                 IcustomerFacade cm = new DataAccessFacade();
                 IorderFacade om = new DataAccessFacade();
-                int customerId;
+                
                 
                 Order order = null;
                 Customer customer = null;
