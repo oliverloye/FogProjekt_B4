@@ -96,9 +96,10 @@ public class CustomerMapper implements IcustomerFacade {
 
         } catch (SQLException ex) {
             ex.printStackTrace();
-            
         }
     }
+    
+    
     
     /**
      * This method updates a Customer in the database by its input parameters.

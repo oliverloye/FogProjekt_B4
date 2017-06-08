@@ -32,7 +32,7 @@ public class CalculateController extends HttpServlet {
         
         response.setContentType("text/html;charset=UTF-8");
         
-
+        
         //Dimensioner divideres med 100 da kundens input er i cm og prisen
         //for træet er kr/meter.
         double h = Double.parseDouble(request.getParameter("height")) / 100;
