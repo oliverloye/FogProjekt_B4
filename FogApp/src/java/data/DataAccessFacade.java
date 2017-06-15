@@ -93,5 +93,10 @@ public class DataAccessFacade implements IcustomerFacade, IorderFacade, Imateria
     public Order getCustomerOrders(int cid) {
         return om.getCustomerOrders(cid);
     }
+
+    @Override
+    public boolean isValidInput(String input) {
+        return cm.isValidInput(input);
+    }
     
 }
