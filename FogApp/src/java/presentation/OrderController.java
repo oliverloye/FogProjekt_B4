@@ -55,7 +55,7 @@ public class OrderController extends HttpServlet {
                     double dTotalPrice = Double.parseDouble(totalPrice);
                     
 
-                    if(cm.checkEmailExists(email) == false) {
+                    if(cm.checkEmailExists(email) == false && cm.isValidInput(email)) {
 
                         cm.setCustomer(firstName, lastName, address, email, phone);
                         
@@ -65,15 +65,15 @@ public class OrderController extends HttpServlet {
 
                         request.getRequestDispatcher("completedOrder.html").forward(request, response);
 
-                    } else {
+                    } else if(cm.checkEmailExists(email) == true && cm.isValidInput(email)) {
 
                         customerId = cm.getCustomerId(email).getCid();
 
                         om.setOrder(customerId, dHeight, dLength, dWidth, dTotalPrice);
 
                         request.getRequestDispatcher("completedOrder.html").forward(request, response);
-
-
+                    } else {
+                        request.getRequestDispatcher("errorOrder.html").forward(request, response);
                     } 
                 } catch (SQLException ex) {
                     ex.printStackTrace();

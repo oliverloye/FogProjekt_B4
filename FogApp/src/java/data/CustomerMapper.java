@@ -192,4 +192,11 @@ public class CustomerMapper implements IcustomerFacade {
         
         return null;
     }
+    
+    @Override
+    public boolean isValidInput(String input) {
+        if(input.isEmpty()) {
+            return false;
+        } return true;
+    }
 }

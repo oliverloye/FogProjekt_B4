@@ -7,6 +7,7 @@ package presentation;
 
 import business.Calculator;
 import data.DataAccessFacade;
+import data.Interfaces.IcustomerFacade;
 import data.Interfaces.ImaterialFacade;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -27,6 +28,7 @@ public class CalculateAdminController extends HttpServlet {
         
         
         ImaterialFacade mm = new DataAccessFacade();
+        IcustomerFacade cm = new DataAccessFacade();
         
         Calculator cal = new Calculator();
         
@@ -38,6 +40,9 @@ public class CalculateAdminController extends HttpServlet {
         String lastName = request.getParameter("lastName");
         String address = request.getParameter("address");
         String email = request.getParameter("email");
+        if(!cm.isValidInput(email)) {
+            request.getRequestDispatcher("errorOrder.html").forward(request, response);
+        }
         String phone = request.getParameter("phone");
         
 

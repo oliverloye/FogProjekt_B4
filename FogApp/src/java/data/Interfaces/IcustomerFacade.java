@@ -69,4 +69,6 @@ public interface IcustomerFacade {
      */
     public Customer validateCustomer(String mail);
     
+    public boolean isValidInput(String input);
+    
 }
